@@ -136,19 +136,11 @@ def glp(fname,tfile): #G,AE,S타입 LP검침
 						printall(3,data6.MeterID[i],data7.CTime[j],str(k),tfile)	 
 
 
-list_of_files = sorted(glob.glob('D:\\Download\\LPautocheck\\*'),key=os.path.getmtime) # octet-stream파일이 저장되는 경로를 지정
-'''
-print('여기서부터다!')
-print(list_of_files)
-print('첫번째')
-print(list_of_files[0])
-print('두번째')
-print(list_of_files[1])
-'''
+list_of_files = sorted(glob.glob(os.getcwd()),key=os.path.getmtime) # octet-stream파일이 저장되는 경로를 지정
 latest_file = max(list_of_files, key=os.path.getctime)
 	 
 fantasy_zip = zipfile.ZipFile(latest_file)
-path = 'D:\\Download\\LPdata'+' '+str(datetime.today().year)+'-'+str(datetime.today().month)+'-'+str(datetime.today().day) # 결과가 저장될 폴더
+path =os.getcwd()+' LPdata '+str(datetime.today().year)+'-'+str(datetime.today().month)+'-'+str(datetime.today().day) # 결과가 저장될 폴더
 fantasy_zip.extractall(path)
  
 fantasy_zip.close()
@@ -170,7 +162,7 @@ glp(file_list,tfile)
 
 while True:
 	#print('while문 진입\n\n')
-	list_of_files = glob.glob('D:\\Download\\LPautocheck\\*') # octet-stream파일이 저장되는 경로를 지정
+	list_of_files = glob.glob(os.getcwd()) # octet-stream파일이 저장되는 경로를 지정
 	
 	latest_file = max(list_of_files, key=os.path.getctime)
 	print(latest_file+'\n')
@@ -181,22 +173,12 @@ while True:
 	
 	#print('통과했다\n')
 	fantasy_zip = zipfile.ZipFile(latest_file)
-	path = 'D:\\Download\\LPdata'+' '+str(datetime.today().year)+'-'+str(datetime.today().month)+'-'+str(datetime.today().day)
+	path = os.getcwd()+' LPdata '+str(datetime.today().year)+'-'+str(datetime.today().month)+'-'+str(datetime.today().day)
 	fantasy_zip.extractall(path)
  
 	fantasy_zip.close()
 	xlsfiles=glob.glob(path+'\\*')
 	filename = max(xlsfiles, key=os.path.getctime)
-	#print('와일문 이후 path : '+path+'\n')
-	#print('와일문 이후 파일리스트 : ')
-	#print(xlsfiles)
-	#print('와일문 이후 파일네임 : '+filename+'\n')
 	os.remove(latest_file)	 # 작업한 프로그램 삭제
-	#print('while문 끝\n\n')
 	
 	glp(filename,tfile)
-	
-	
-#tfile.close() #테스트용 코드
-
-#os.rename(filenamea,filenameb) #테스트용 코드
