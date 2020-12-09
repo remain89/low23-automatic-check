@@ -160,7 +160,7 @@ print('location0\n')
 fantasy_zip.close()
 
 print(epath)
-print(os.getcwd())
+print(os.listdir(os.getcwd()))
 file_list = max(os.listdir(os.getcwd()),key=os.path.getctime)
 print(file_list)
 print('location1\n')
