@@ -146,10 +146,10 @@ print('list_of_files')
 print(filelist)
 print('filelist')
 print(mxfile)
-print(mxfile[:3])
+print(mxfile[-3:])
 print('mxfile')
 
-if mxfile[:3]=='log' :
+if mxfile[-3:]=='log' or =='jtl' :
 	os.remove(mxfile)
 	mxfile=max(os.listdir(os.getcwd()),key=os.path.getctime)
 	print(mxfile)
