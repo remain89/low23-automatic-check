@@ -962,7 +962,7 @@
               </elementProp>
               <elementProp name="SID" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">${modem_no5}</stringProp>
+                <stringProp name="Argument.value">${modem_no7}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">SID</stringProp>
@@ -1090,7 +1090,7 @@
               </elementProp>
               <elementProp name="SID" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">${modem_no5}</stringProp>
+                <stringProp name="Argument.value">${modem_no8}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">SID</stringProp>
