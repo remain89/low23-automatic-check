@@ -194,7 +194,7 @@ while True:
 	#list_of_files = glob.glob(os.getcwd()) # octet-stream파일이 저장되는 경로를 지정
 	list_of_files=os.listdir(os.getcwd())
 	print(list_of_files)
-	list_of_files.remove(epath)
+	list_of_files.remove('LPdata '+str(datetime.today().year)+'-'+str(datetime.today().month)+'-'+str(datetime.today().day))
 	
 	latest_file = max(list_of_files, key=os.path.getctime)
 	print('level2')
