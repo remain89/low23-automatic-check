@@ -159,7 +159,9 @@ print('location0\n')
 fantasy_zip.close()
 
 file_list = os.listdir(path)
+print(file_list)
 file_list=''.join(file_list)
+print(file_list)
 file_list=path+'/'+file_list
 print(file_list+'\nlocation1\n')
 os.remove(latest_file)	 # 작업한 프로그램 삭제
