@@ -153,7 +153,7 @@ if latest_file[-3:]=='log' or latest_file[-3:]=='jtl' :
 		print('change mxfile2')		
 #print(list_of_files+'\nlocation-1\n')	 
 fantasy_zip = zipfile.ZipFile(latest_file)
-path =os.getcwd()+' LPdata '+str(datetime.today().year)+'-'+str(datetime.today().month)+'-'+str(datetime.today().day) # 결과가 저장될 폴더
+path =os.getcwd()+'/LPdata '+str(datetime.today().year)+'-'+str(datetime.today().month)+'-'+str(datetime.today().day) # 결과가 저장될 폴더
 fantasy_zip.extractall(path)
 print('location0\n')
 fantasy_zip.close()
@@ -164,7 +164,7 @@ file_list=path+'\\'+file_list
 print(file_list+'\nlocation1\n')
 os.remove(latest_file)	 # 작업한 프로그램 삭제
 
-filename=path+'\\'+str(datetime.today().year)+'-'+str(datetime.today().month)+'-'+str(datetime.today().day)+'-'+'분석 결과.txt'
+filename=path+'/'+str(datetime.today().year)+'-'+str(datetime.today().month)+'-'+str(datetime.today().day)+'-'+'분석 결과.txt'
 tfile = open(filename, mode='wt', encoding='utf-8')
 
 
