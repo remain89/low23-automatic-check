@@ -191,9 +191,11 @@ glp(file_list,tfile)
 
 while True:
 	#print('while문 진입\n\n')
-	list_of_files = glob.glob(os.getcwd()) # octet-stream파일이 저장되는 경로를 지정
+	#list_of_files = glob.glob(os.getcwd()) # octet-stream파일이 저장되는 경로를 지정
+	list_of_files=os.listdir(os.getcwd())
 	
 	latest_file = max(list_of_files, key=os.path.getctime)
+	print('level2')
 	print(latest_file+'\n')
 	print(latest_file[-12:]+'\nlocation2\n')
 	if latest_file[-12:]!='octet-stream' :  #가장 최근파일의 확장자가 octet-stream이 아닌경우에 와일문 종료
