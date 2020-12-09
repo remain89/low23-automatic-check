@@ -136,12 +136,14 @@ def glp(fname,tfile): #G,AE,S타입 LP검침
 					if data10.empty==False: #하나라도 쓰레기값 범위인 경우
 						printall(3,data6.MeterID[i],data7.CTime[j],str(k),tfile)	 
 
-
+filelist=os.listdir(os.getcwd())
 list_of_files = sorted(glob.glob(os.getcwd()),key=os.path.getmtime) # octet-stream파일이 저장되는 경로를 지정
 latest_file = max(list_of_files, key=os.path.getctime)
 print(os.getcwd()+' getcwd()')
 print(list_of_files)
 print('list_of_files')
+print(flielist)
+print('filelist')
 #print(list_of_files+'\nlocation-1\n')	 
 fantasy_zip = zipfile.ZipFile(latest_file)
 path =os.getcwd()+' LPdata '+str(datetime.today().year)+'-'+str(datetime.today().month)+'-'+str(datetime.today().day) # 결과가 저장될 폴더
