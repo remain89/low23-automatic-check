@@ -160,7 +160,7 @@ print('location0\n')
 fantasy_zip.close()
 
 print(path)
-print(os.ilstdir(path))
+print(os.listdir(path))
 file_list = max(path,key=os.path.getctime)
 print(file_list)
 '''file_list=''.join(file_list)
