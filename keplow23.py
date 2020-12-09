@@ -158,20 +158,23 @@ epath =os.getcwd()+'/LPdata '+str(datetime.today().year)+'-'+str(datetime.today(
 fantasy_zip.extractall(epath)
 print('location0\n')
 fantasy_zip.close()
-
+'''
 print(epath)
 print(os.listdir(os.getcwd()))
+
 file_list = max(os.listdir(os.getcwd()),key=os.path.getctime)
 print(file_list)
 print('location1\n')
+
 print(os.listdir(epath))
-file_list = max(epath,key=os.path.getctime)
+file_list = max(os.listdir(epath),key=os.path.getctime)
 print(file_list)
-'''file_list=''.join(file_list)
+'''
+file_list=''.join(file_list)
 print(file_list)
 file_list=path+'/'+file_list
-print(file_list+'\nlocation1\n')
-'''
+print(file_list)
+print('location1\n')
 
 os.remove(latest_file)	 # 작업한 프로그램 삭제
 
