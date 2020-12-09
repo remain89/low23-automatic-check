@@ -137,9 +137,7 @@ def glp(fname,tfile): #G,AE,S타입 LP검침
 						printall(3,data6.MeterID[i],data7.CTime[j],str(k),tfile)	 
 
 list_of_files=os.listdir(os.getcwd())
-#list_of_files = sorted(glob.glob(os.getcwd()),key=os.path.getmtime) # octet-stream파일이 저장되는 경로를 지정
 latest_file = max(list_of_files, key=os.path.getctime)
-#mxfile=max(filelist,key=os.path.getctime)
 
 if latest_file[-3:]=='log' or latest_file[-3:]=='jtl' :
 	os.remove(latest_file)
@@ -151,41 +149,18 @@ if latest_file[-3:]=='log' or latest_file[-3:]=='jtl' :
 		latest_file=max(os.listdir(os.getcwd()),key=os.path.getctime)
 		print(latest_file)
 		print('change mxfile2')		
-#print(list_of_files+'\nlocation-1\n')	 
 fantasy_zip = zipfile.ZipFile(latest_file)
 epath =os.getcwd()+'/LPdata '+str(datetime.today().year)+'-'+str(datetime.today().month)+'-'+str(datetime.today().day) # 결과가 저장될 폴더
 
 fantasy_zip.extractall(epath)
 print('location0\n')
 fantasy_zip.close()
-'''
-print(epath)
-print(os.listdir(os.getcwd()))
-
-file_list = max(os.listdir(os.getcwd()),key=os.path.getctime)
-print(file_list)
-print('location1\n')
-
-print(os.listdir(epath))
-file_list = max(os.listdir(epath),key=os.path.getctime)
-print(file_list)
-'''
-file_list = os.listdir(epath)
-print(file_list)
-file_list=''.join(file_list)
-print(file_list)
 file_list=epath+'/'+file_list
-print(file_list)
-print('location1\n')
 
 os.remove(latest_file)	 # 작업한 프로그램 삭제
 
 filename=epath+'/'+str(datetime.today().year)+'-'+str(datetime.today().month)+'-'+str(datetime.today().day)+'-'+'분석 결과.txt'
 tfile = open(filename, mode='wt', encoding='utf-8')
-
-
-#filenamea=filename # 테스트용 코드
-#filenameb=path+'\\'+str(datetime.now().minute)+'.txt' #테스트용 코드
 
 glp(file_list,tfile)
 
@@ -201,11 +176,9 @@ while True:
 	print(latest_file+'\n')
 	print(latest_file[-12:]+'\nlocation2\n')
 	if latest_file[-12:]!='octet-stream' :  #가장 최근파일의 확장자가 octet-stream이 아닌경우에 와일문 종료
-		#print('잡았는데?\n')
 		print('location3\n')
 		break
-	
-	#print('통과했다\n')
+		
 	fantasy_zip = zipfile.ZipFile(latest_file)
 	path = os.getcwd()+'/LPdata '+str(datetime.today().year)+'-'+str(datetime.today().month)+'-'+str(datetime.today().day)
 	fantasy_zip.extractall(path)
