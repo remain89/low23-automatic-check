@@ -149,7 +149,7 @@ print(mxfile)
 print(mxfile[-3:])
 print('mxfile')
 
-if mxfile[-3:]=='log' or =='jtl' :
+if mxfile[-3:]=='log' or mxfile[-3:]=='jtl' :
 	os.remove(mxfile)
 	mxfile=max(os.listdir(os.getcwd()),key=os.path.getctime)
 	print(mxfile)
