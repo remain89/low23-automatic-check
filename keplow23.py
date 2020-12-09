@@ -136,28 +136,20 @@ def glp(fname,tfile): #G,AE,S타입 LP검침
 					if data10.empty==False: #하나라도 쓰레기값 범위인 경우
 						printall(3,data6.MeterID[i],data7.CTime[j],str(k),tfile)	 
 
-filelist=os.listdir(os.getcwd())
-list_of_files = sorted(glob.glob(os.getcwd()),key=os.path.getmtime) # octet-stream파일이 저장되는 경로를 지정
+list_of_files=os.listdir(os.getcwd())
+#list_of_files = sorted(glob.glob(os.getcwd()),key=os.path.getmtime) # octet-stream파일이 저장되는 경로를 지정
 latest_file = max(list_of_files, key=os.path.getctime)
-mxfile=max(filelist,key=os.path.getctime)
-print(os.getcwd()+' getcwd()')
-print(list_of_files)
-print('list_of_files')
-print(filelist)
-print('filelist')
-print(mxfile)
-print(mxfile[-3:])
-print('mxfile')
+#mxfile=max(filelist,key=os.path.getctime)
 
-if mxfile[-3:]=='log' or mxfile[-3:]=='jtl' :
-	os.remove(mxfile)
-	mxfile=max(os.listdir(os.getcwd()),key=os.path.getctime)
-	print(mxfile)
+if latest_file[-3:]=='log' or latest_file[-3:]=='jtl' :
+	os.remove(latest_file)
+	latest_file=max(os.listdir(os.getcwd()),key=os.path.getctime)
+	print(latest_file)
 	print('change mxfile1')
-	if mxfile[-3:]=='log' or mxfile[-3:]=='jtl' :
-		os.remove(mxfile)
-		mxfile=max(os.listdir(os.getcwd()),key=os.path.getctime)
-		print(mxfile)
+	if latest_file[-3:]=='log' or latest_file[-3:]=='jtl' :
+		os.remove(latest_file)
+		latest_file=max(os.listdir(os.getcwd()),key=os.path.getctime)
+		print(latest_file)
 		print('change mxfile2')		
 #print(list_of_files+'\nlocation-1\n')	 
 fantasy_zip = zipfile.ZipFile(latest_file)
