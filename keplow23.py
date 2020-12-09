@@ -57,6 +57,7 @@ def glp(fname,tfile): #G,AE,S타입 LP검침
 	data2.rename(columns={'검침시간':'CTime'},inplace=True)
 	data2['FEP']=pd.to_numeric(data2['FEP'],errors='coerce')
 	data2['MeterID']=data2['MeterID'].astype(str)   
+	print('location5\n')
 	   
 	data6=data2.drop_duplicates('MeterID',keep='first') # 미터정보만 남김
 	data6.MeterID.count() #전체 미터 갯수
@@ -148,7 +149,7 @@ fantasy_zip.close()
 file_list = os.listdir(path)
 file_list=''.join(file_list)
 file_list=path+'\\'+file_list
-print(file_list+'\n')
+print(file_list+'\nlocation1\n')
 os.remove(latest_file)	 # 작업한 프로그램 삭제
 
 filename=path+'\\'+str(datetime.today().year)+'-'+str(datetime.today().month)+'-'+str(datetime.today().day)+'-'+'분석 결과.txt'
@@ -166,16 +167,17 @@ while True:
 	
 	latest_file = max(list_of_files, key=os.path.getctime)
 	print(latest_file+'\n')
-	print(latest_file[-12:])
+	print(latest_file[-12:]+'\nlocation2\n')
 	if latest_file[-12:]!='octet-stream' :  #가장 최근파일의 확장자가 octet-stream이 아닌경우에 와일문 종료
 		#print('잡았는데?\n')
+		print('location3\n')
 		break
 	
 	#print('통과했다\n')
 	fantasy_zip = zipfile.ZipFile(latest_file)
 	path = os.getcwd()+' LPdata '+str(datetime.today().year)+'-'+str(datetime.today().month)+'-'+str(datetime.today().day)
 	fantasy_zip.extractall(path)
- 
+	print('location4\n')
 	fantasy_zip.close()
 	xlsfiles=glob.glob(path+'\\*')
 	filename = max(xlsfiles, key=os.path.getctime)
