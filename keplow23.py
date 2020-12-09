@@ -153,7 +153,12 @@ if mxfile[-3:]=='log' or mxfile[-3:]=='jtl' :
 	os.remove(mxfile)
 	mxfile=max(os.listdir(os.getcwd()),key=os.path.getctime)
 	print(mxfile)
-	print('change mxfile')
+	print('change mxfile1')
+	if mxfile[-3:]=='log' or mxfile[-3:]=='jtl' :
+		os.remove(mxfile)
+		mxfile=max(os.listdir(os.getcwd()),key=os.path.getctime)
+		print(mxfile)
+		print('change mxfile2')		
 #print(list_of_files+'\nlocation-1\n')	 
 fantasy_zip = zipfile.ZipFile(latest_file)
 path =os.getcwd()+' LPdata '+str(datetime.today().year)+'-'+str(datetime.today().month)+'-'+str(datetime.today().day) # 결과가 저장될 폴더
