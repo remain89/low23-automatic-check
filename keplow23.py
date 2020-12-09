@@ -174,7 +174,7 @@ file_list = os.listdir(epath)
 print(file_list)
 file_list=''.join(file_list)
 print(file_list)
-file_list=path+'/'+file_list
+file_list=epath+'/'+file_list
 print(file_list)
 print('location1\n')
 
