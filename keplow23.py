@@ -103,7 +103,7 @@ def glp(fname,tfile): #G,AE,S타입 LP검침
 				data8['APC']=pd.to_numeric(data8['APC'],errors='coerce')		  
 				data8['APD']=pd.to_numeric(data8['APD'],errors='coerce')		  
 
-				if k<96 | k>98: #일일 LP 개수가 정상이 아닐경우 체크
+				if k<96 or k>99: #일일 LP 개수가 정상이 아닐경우 체크
 					if k!=0:  
 						printall(1,data6.MeterID[i],data7.CTime[j],str(k),tfile)
    	 		
